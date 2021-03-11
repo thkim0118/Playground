@@ -4,7 +4,11 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import android.view.accessibility.AccessibilityNodeInfo
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.AccessibilityDelegateCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import com.thkim.playground.R
 import kotlin.math.cos
 import kotlin.math.min
@@ -50,6 +54,28 @@ class DialView @JvmOverloads constructor(
             fanSpeedMediumColor = getColor(R.styleable.DialView_fanColor2, 0)
             fanSpeedMaxColor = getColor(R.styleable.DialView_fanColor3, 0)
         }
+
+        updateContentDescription()
+
+        // This strategy enables the greatest amount of backward compatibility in your app.
+        // Notice now that the phrase "Double-tap to activate" is now
+        // either "Double-tap to change" (if the fan speed is less than high or 3) or
+        // "Double-tap to reset" (if the fan speed is already at high or 3).
+        // Note that the prompt "Double-tap to..." is supplied by the TalkBack service itself.
+        ViewCompat.setAccessibilityDelegate(this, object : AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(
+                host: View,
+                info: AccessibilityNodeInfoCompat
+            ) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                val customClick = AccessibilityNodeInfoCompat.AccessibilityActionCompat(
+                    AccessibilityNodeInfo.ACTION_CLICK,
+                    context.getString(if (fanSpeed != FanSpeed.HIGH) R.string.change else R.string.reset)
+                )
+                info.addAction(customClick)
+            }
+        })
+
     }
 
     override fun performClick(): Boolean {
@@ -58,7 +84,8 @@ class DialView @JvmOverloads constructor(
         if (super.performClick()) return true
 
         fanSpeed = fanSpeed.next()
-        contentDescription = resources.getString(fanSpeed.label)
+//        contentDescription = resources.getString(fanSpeed.label)
+        updateContentDescription() // contentDescription -> TalkBack.
 
         invalidate() // This tells the Android system to call the onDraw() method to redraw the view.
         return true
@@ -122,6 +149,11 @@ class DialView @JvmOverloads constructor(
             canvas.drawText(label, pointPosition.x, pointPosition.y, paint)
         }
     }
+
+    fun updateContentDescription() {
+        contentDescription = resources.getString(fanSpeed.label)
+    }
+
 }
 
 /**
