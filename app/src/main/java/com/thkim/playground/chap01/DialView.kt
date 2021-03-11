@@ -36,6 +36,23 @@ class DialView @JvmOverloads constructor(
         typeface = Typeface.create("", Typeface.BOLD)
     }
 
+    init {
+        // Setting the view's isClickable property to true enables that view to accept user input.
+        isClickable = true
+    }
+
+    override fun performClick(): Boolean {
+        // The call to super.performClick() must happen first,
+        // which enables accessibility events as well as calls onClickListener().
+        if (super.performClick()) return true
+
+        fanSpeed = fanSpeed.next()
+        contentDescription = resources.getString(fanSpeed.label)
+
+        invalidate() // This tells the Android system to call the onDraw() method to redraw the view.
+        return true
+    }
+
     /**
      * The onSizeChanged() method is called any time the view's size changes,
      * including the first time it is drawn when the layout is inflated.
@@ -97,6 +114,13 @@ private enum class FanSpeed(val label: Int) {
     LOW(R.string.fan_low),
     MEDIUM(R.string.fan_medium),
     HIGH(R.string.fan_high);
+
+    fun next() = when (this) {
+        OFF -> LOW
+        LOW -> MEDIUM
+        MEDIUM -> HIGH
+        HIGH -> OFF
+    }
 }
 
 /**
