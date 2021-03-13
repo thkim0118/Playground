@@ -1,4 +1,4 @@
-package com.thkim.playground.chap02
+package com.thkim.playground.chap02.course01
 
 import android.content.Context
 import android.graphics.*

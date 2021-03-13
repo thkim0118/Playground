@@ -8,13 +8,31 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <Button
-            android:id="@+id/bt_chap01"
+        <TextView
+            android:id="@+id/tv_chap02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="chap01"
+            android:layout_margin="12dp"
+            android:text="chapter02 - Advanced Graphics"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bt_course01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="course01"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_chap02" />
+
+        <Button
+            android:id="@+id/bt_course02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="course02"
+            app:layout_constraintStart_toEndOf="@id/bt_course01"
+            app:layout_constraintTop_toTopOf="@id/bt_course01" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
