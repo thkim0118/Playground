@@ -1,4 +1,4 @@
-package com.thkim.playground.chap01
+package com.thkim.playground.chap02
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
