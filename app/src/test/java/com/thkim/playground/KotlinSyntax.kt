@@ -7,6 +7,16 @@ import org.junit.Test
  */
 class KotlinSyntax {
 
+    @Test
+    fun collections() {
+        val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
+        fruits
+            .filter { it.startsWith("a") }
+            .sortedBy { it }
+            .map { it.toUpperCase() }
+            .forEach { println(it) }
+    }
+
     /**
      * #1. Check if number is within a range using @in operator.
      * #2. Check if a number is out of range.
