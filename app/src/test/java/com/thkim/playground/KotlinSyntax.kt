@@ -7,6 +7,16 @@ import org.junit.Test
  */
 class KotlinSyntax {
 
+    fun swapTwoVariables() {
+        var a = 1
+        var b = 2
+        a = b.also { b = a }
+    }
+
+    fun arrayOfMinusOnes(size: Int): IntArray {
+        return IntArray(size).apply { fill(-1) }
+    }
+
     @Test
     fun collections() {
         val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
@@ -60,5 +70,22 @@ class KotlinSyntax {
             print(x)
         }
         println()
+
+        // Iterate over a range
+        for (i in 1..100) {
+            // closed range: includes 100
+        }
+        for (i in 1 until 100) {
+            // half-open range: does not include 100
+        }
+        for (x in 2..10 step 2) {
+            //...
+        }
+        for (x in 10 downTo 1) {
+            //...
+        }
+        if (x in 1..10) {
+            //...
+        }
     }
 }
