@@ -2,11 +2,11 @@ package com.thkim.playground
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.thkim.playground.chap02.course01.CustomViewActivity
 import com.thkim.playground.chap02.course02.MiniPaint
+import com.thkim.playground.chap02.course03.ClippingActivity
 import com.thkim.playground.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
 
             btCourse02.setOnClickListener {
                 startActivity(Intent(this@MainActivity, MiniPaint::class.java))
+            }
+
+            btCourse03.setOnClickListener {
+                startActivity(Intent(this@MainActivity, ClippingActivity::class.java))
             }
         }
     }

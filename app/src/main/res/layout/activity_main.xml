@@ -34,6 +34,15 @@
             app:layout_constraintStart_toEndOf="@id/bt_course01"
             app:layout_constraintTop_toTopOf="@id/bt_course01" />
 
+        <Button
+            android:id="@+id/bt_course03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="course03"
+            app:layout_constraintStart_toEndOf="@id/bt_course02"
+            app:layout_constraintTop_toTopOf="@id/bt_course02" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
