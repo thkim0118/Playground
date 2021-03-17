@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.thkim.playground.chap02.course01.CustomViewActivity
 import com.thkim.playground.chap02.course02.MiniPaint
 import com.thkim.playground.chap02.course03.ClippingActivity
+import com.thkim.playground.chap02.course04.FindMeActivity
 import com.thkim.playground.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
 
             btCourse03.setOnClickListener {
                 startActivity(Intent(this@MainActivity, ClippingActivity::class.java))
+            }
+
+            btCourse04.setOnClickListener {
+                startActivity(Intent(this@MainActivity, FindMeActivity::class.java))
             }
         }
     }

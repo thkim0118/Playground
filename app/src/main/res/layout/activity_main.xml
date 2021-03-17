@@ -22,7 +22,7 @@
             android:id="@+id/bt_course01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="course01"
+            android:text="course 1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_chap02" />
 
@@ -30,7 +30,7 @@
             android:id="@+id/bt_course02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="course02"
+            android:text="course 2"
             app:layout_constraintStart_toEndOf="@id/bt_course01"
             app:layout_constraintTop_toTopOf="@id/bt_course01" />
 
@@ -38,9 +38,17 @@
             android:id="@+id/bt_course03"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="course03"
+            android:text="course 3"
             app:layout_constraintStart_toEndOf="@id/bt_course02"
             app:layout_constraintTop_toTopOf="@id/bt_course02" />
+
+        <Button
+            android:id="@+id/bt_course04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="course 4"
+            app:layout_constraintStart_toEndOf="@id/bt_course03"
+            app:layout_constraintTop_toTopOf="@id/bt_course03" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
