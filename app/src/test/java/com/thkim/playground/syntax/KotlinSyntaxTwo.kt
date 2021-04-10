@@ -41,4 +41,50 @@ class KotlinSyntaxTwo {
         // count
         println(nameList.count { it.length > 4 })
     }
+
+
+    @Test
+    fun testTwo() {
+
+        val personList = listOf(
+            Person("RM", 110),
+            Person("RM", 111),
+            Person("RM", 112),
+            Person("슈가", 120),
+            Person("진", 130),
+            Person("제이홉", 140),
+            Person("제이홉", 141),
+            Person("지민", 150),
+            Person("뷔", 160),
+            Person("정국", 170)
+        )
+
+        // num 을 기준으로 map 을 만든다. -> Key : num, Value : Person
+        println(personList.associateBy { it.num })
+
+        // name 을 기준으로 group 을 만들어 map 을 만든다.
+        println(personList.groupBy { it.name })
+
+        // num 을 기준으로 나누어 각 리스트로 반환한다.
+        val (over150, under150) = personList.partition { it.num > 150 }
+        println(over150)
+        println(under150)
+    }
+
+    data class Person(val name: String, val num: Int)
+
+    @Test
+    fun testThree() {
+
+        val numList = listOf(-3, 7, 2, -10, 1)
+
+        println(numList.flatMap { listOf(it * 10, it + 10) })
+
+        println(numList.getOrElse(1) { 50 })
+        println(numList.getOrElse(10) { 50 })
+
+        val names = listOf("A", "B", "C", "D")
+
+        println(numList zip names)
+    }
 }
