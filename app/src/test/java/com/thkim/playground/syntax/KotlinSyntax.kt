@@ -1,4 +1,4 @@
-package com.thkim.playground
+package com.thkim.playground.syntax
 
 import org.junit.Test
 
