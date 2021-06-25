@@ -2,23 +2,17 @@ package com.thkim.playground
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import com.thkim.playground.activity.OneActivity
+import com.thkim.playground.base.BaseActivity
 import com.thkim.playground.chap02.course01.CustomViewActivity
 import com.thkim.playground.chap02.course02.MiniPaint
 import com.thkim.playground.chap02.course03.ClippingActivity
 import com.thkim.playground.chap02.course04.FindMeActivity
 import com.thkim.playground.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-
+class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.lifecycleOwner = this
-
         setListener()
     }
 
@@ -38,6 +32,10 @@ class MainActivity : AppCompatActivity() {
 
             btCourse04.setOnClickListener {
                 startActivity(Intent(this@MainActivity, FindMeActivity::class.java))
+            }
+
+            btActivityResult.setOnClickListener {
+                startActivity(Intent(this@MainActivity, OneActivity::class.java))
             }
         }
     }
