@@ -21,6 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="course 1"
+        app:layout_constraintEnd_toStartOf="@id/bt_course02"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_chap02" />
 
@@ -29,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="course 2"
+        app:layout_constraintEnd_toStartOf="@id/bt_course03"
         app:layout_constraintStart_toEndOf="@id/bt_course01"
         app:layout_constraintTop_toTopOf="@id/bt_course01" />
 
@@ -37,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="course 3"
+        app:layout_constraintEnd_toStartOf="@id/bt_course04"
         app:layout_constraintStart_toEndOf="@id/bt_course02"
         app:layout_constraintTop_toTopOf="@id/bt_course02" />
 
@@ -45,6 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="course 4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/bt_course03"
         app:layout_constraintTop_toTopOf="@id/bt_course03" />
 
@@ -55,5 +60,13 @@
         android:text="activity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bt_course01" />
+
+    <Button
+        android:id="@+id/recyclerTextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recycler"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_activity_result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

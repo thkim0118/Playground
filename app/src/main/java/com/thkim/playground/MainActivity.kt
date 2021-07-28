@@ -9,6 +9,7 @@ import com.thkim.playground.chap02.course02.MiniPaint
 import com.thkim.playground.chap02.course03.ClippingActivity
 import com.thkim.playground.chap02.course04.FindMeActivity
 import com.thkim.playground.databinding.ActivityMainBinding
+import com.thkim.playground.recycler.RecyclerMainActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +37,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
             btActivityResult.setOnClickListener {
                 startActivity(Intent(this@MainActivity, OneActivity::class.java))
+            }
+
+            recyclerTextButton.setOnClickListener {
+                startActivity(Intent(this@MainActivity, RecyclerMainActivity::class.java))
             }
         }
     }

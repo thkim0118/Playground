@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Playground">
-        <activity android:name=".activity.ThreeActivity"></activity>
+        <activity android:name=".recycler.RecyclerMainActivity"></activity>
+        <activity android:name=".activity.ThreeActivity" />
         <activity android:name=".activity.TwoActivity" />
         <activity android:name=".activity.OneActivity" />
         <activity android:name=".chap02.course04.FindMeActivity" />
